@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'offices/index'
+  get 'offices/show'
+  get 'offices/new'
+  get 'offices/create'
+  get 'offices/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
