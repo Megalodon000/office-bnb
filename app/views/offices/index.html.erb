@@ -1,2 +1,12 @@
 <h1>Offices#index</h1>
-<p>Find me in app/views/offices/index.html.erb</p>
+<%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
+<ul>
+<% @offices.each do |office| %>
+<li> <%= @user.name%></li>
+<li><%= link_to office.title, office_path(office) %></li>
+<li><%= office.description %></li>
+<li><%= office.price %></li>
+<% end %>
+
+
+</ul>

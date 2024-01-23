@@ -1,7 +1,7 @@
 class OfficesController < ApplicationController
   def index
     @offices = Office.all
-    @users = User.all
+    @user = current_user
   end
 
   def show
@@ -29,8 +29,8 @@ class OfficesController < ApplicationController
 
   private
 
-  def list_params
-    params.require(:office).permit(:name, :email, :password)
+  def office_params
+    params.require(:office).permit(:title, :description, :price)
   end
 
 end

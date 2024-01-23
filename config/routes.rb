@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'booking/index'
-  get 'booking/show'
-  get 'booking/new'
-  get 'booking/create'
-  get 'booking/destroy'
-=======
   root to: "pages#home"
 
->>>>>>> beec2ce7d36f4fabae71c8fe6ed0d6e1a0e5d073
   devise_for :users do
     resources :bookings, only: [:index, :show, :new, :create, :destroy]
     resources :offices, only: [:show, :new, :create, :destroy]
