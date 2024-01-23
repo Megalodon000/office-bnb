@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'booking/index'
   get 'booking/show'
   get 'booking/new'
   get 'booking/create'
   get 'booking/destroy'
+=======
+  root to: "pages#home"
+
+>>>>>>> beec2ce7d36f4fabae71c8fe6ed0d6e1a0e5d073
   devise_for :users do
     resources :bookings, only: [:index, :show, :new, :create, :destroy]
     resources :offices, only: [:show, :new, :create, :destroy]
   end
-  root to: "pages#home"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,6 +23,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :offices, only: [:index, :new, :create, :destroy]
-  
+  resources :offices, only: [:index, :show, :new, :create, :destroy]
+
 end
