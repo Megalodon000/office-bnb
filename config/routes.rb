@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'offices/index'
-  get 'offices/show'
-  get 'offices/new'
-  get 'offices/create'
-  get 'offices/destroy'
-  devise_for :users
+  devise_for :users do
+    resources :bookings, only: [:index, :show, :new, :create, :destroy]
+    resources :offices, only: [:show, :new, :create, :destroy]
+  end
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,6 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :offices
-
+  resources :offices, only: [:index, :new, :create, :destroy]
+  
 end
