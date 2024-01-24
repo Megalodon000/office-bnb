@@ -1,9 +1,8 @@
-<h1>Offices#new</h1>
-<%= simple_form_for @office do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
+<div class="container w-50 shadow">
 
-<%= f.input :price %>
-<%= f.submit %>
+<h1 class="text-center">New Listing</h1>
 
-<% end %>
+<%= render 'form' %>
+
+<%= link_to 'Back', offices_path, class:"btn btn-primary my-5" %>
+</div>
