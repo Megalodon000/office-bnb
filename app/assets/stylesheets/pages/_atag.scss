@@ -20,13 +20,17 @@ color:black;
 .nav-bar{
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  margin-left: -70px;
 }
 
 .logo2{
   font-family: 'Montserrat', sans-serif;
   justify-content: center;
   font-size: large;
-  margin-left: -90px;
   border-bottom: 1px solid lightgray;
+}
+
+footer{
+
+position: absolute;
+width: 100%;
 }
