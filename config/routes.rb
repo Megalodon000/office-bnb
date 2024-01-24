@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  devise_for :users do
-    resources :bookings, only: [:index, :show, :new, :create, :destroy]
-    resources :offices, only: [:show, :new, :create, :destroy]
-  end
+  devise_for :users
+  resources :bookings, only: [:index, :show, :new, :create, :destroy]
+  resources :offices, only: [:index, :show, :new, :create, :destroy]
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,6 +16,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :offices, only: [:index, :show, :new, :create, :destroy]
 
 end

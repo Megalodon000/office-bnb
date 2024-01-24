@@ -14,8 +14,9 @@ class OfficesController < ApplicationController
 
   def create
     @office = Office.new(office_params)
-    if @office.save
-      redirect_to office_path(@office)
+    @office.user = current_user
+    if @office.save!
+      redirect_to office_path(@office.id)
     else
       render "new", status: :unprocessable_entity
     end
