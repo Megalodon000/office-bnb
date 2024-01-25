@@ -5,7 +5,7 @@
 <div class="container">
 <div class="row pb-3">
 <% @offices.each do |office| %>
-<div class="card1 mb-3">
+    <div class="card1 mb-3">
     <div class="-title"><%= link_to office.title, office %></div>
     <div class="-text"><p><%= office.description %></p></div>
     <p><strong>Price:</strong> <%= number_to_currency(office.price) %></p>
