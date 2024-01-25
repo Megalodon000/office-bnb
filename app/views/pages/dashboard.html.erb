@@ -1,0 +1,26 @@
+<% if current_user %>
+<div class="container">
+  <% @bookings.each do |booking| %>
+  <div class="card my-3 border border-light shadow ">
+  <h5 class="card-header m-3">the booker user name</h5>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <div class="bott">
+          <a href="#" class="btn btn-primary">Accept</a>
+          <a href="#" class="btn btn-danger">refuse</a>
+      </div>
+    </div>
+  <div class="mx-5 light" >
+    <%= booking.start_date  %>
+    <%= booking.end_date  %>
+  </div>
+</div>
+<% end %>
+
+</div>
+<% else %>
+
+<h1> please login first </h1>
+
+<% end %>
