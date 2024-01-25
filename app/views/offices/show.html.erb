@@ -1,9 +1,47 @@
-<div class="card-product w-25 align-content-center">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= @office.title %></h2>
-    <p><%= @office.description %></p>
-    <h3><%= @office.price %> dh</h3>
+<div class="container">
+  <h1><%= @office.title %></h1>
+  <div class="pics d-flex ">
+      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww" alt="">
+      <img src="https://www.google.com/maps/vt/data=bnLyMQ395gGyuzJhK2mgdJkmeOT35qXnxcZDiBBfJcFGNxyoKv5WNytfsuqQ79dCroyD4LiOxczZ69791H-vUnRbb8etV7pt4X7O3aFnaaJLxn8Ng3QhDRs29Sf0gVOJCm___Wstga-anXLmclPncM9ihbyZ6zax5XH-G8fUaAuKihiK-3p5JboLlpCUCdEhXFboyahVV1wVTVSsfrn5g5I3PmxySrw7xH83Zn4Mgn8pKiigzP5Nw4ujqdI-kBfPzRVmm4dEE_M5GoTwfafjOTNgpmClzYg2F18c" alt="">
   </div>
+  <div class="d-flex justify-content-between">
+    <div class="content">
+      <h3><%= @office.price  %> Dh</h3>
+      <p><%= @office.description %></p>
+    </div>
+    <div class="picker d-flex w-50">
+    <%= simple_form_for @booking do |f| %>
+      <div class="opening-date">
+            <%= f.input :start_date,
+                  as: :string,
+                  minDate: "today",
+                  input_html: { data: { controller: "datepicker" } } %>
+      </div>
+      <div class="end-date">
+            <%= f.input :end_date,
+                  as: :string,
+              minDate: "today",
+                  input_html: { data: { controller: "datepicker" } } %>
+      </div>
+
+      <div>
+      <%= link_to "Book now!", class:"btn btn-primary" %>
+      </div>
+      <% end %>
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
 </div>
-  <h1><%= @office.user.name %></h1>
