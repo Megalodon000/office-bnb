@@ -2,11 +2,16 @@ class OfficesController < ApplicationController
   def index
     @offices = Office.all
     @user = current_user
+
   end
 
   def show
     @office = Office.find(params[:id])
     @booking = Booking.new
+    @markers = [{
+      lat: @office.latitude,
+      lng: @office.longitude,
+    }]
   end
 
   def new
@@ -32,7 +37,7 @@ class OfficesController < ApplicationController
   private
 
   def office_params
-    params.require(:office).permit(:title, :description, :price, :photo)
+    params.require(:office).permit(:title, :description, :price, :photo, :address)
   end
 
 end
