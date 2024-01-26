@@ -6,6 +6,7 @@ class OfficesController < ApplicationController
 
   def show
     @office = Office.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -24,7 +25,7 @@ class OfficesController < ApplicationController
 
   def destroy
     @office = Office.find(params[:id])
-    @office.destroy
+    @office.destroy!
     redirect_to offices_path, status: :see_other
   end
 

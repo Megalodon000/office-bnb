@@ -1,18 +1,31 @@
+
+<div class="container ">
+<div class="row w-25">
 <% if current_user %>
-    <%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
+    <%= link_to "add office", new_office_path(@office), class:"btn btn-primary m-3" %>
 <% end %>
 <div class="container">
 <div class="row pb-3">
 <% @offices.each do |office| %>
-<div class="card1 mb-3">
-    <div class="-title"><%= link_to office.title, office %></div>
-    <div class="-text"><p><%= office.description %></p></div>
-    <p><strong>Price:</strong> <%= number_to_currency(office.price) %></p>
+<figure class="image-block card-category m-3  ">
+	<h2><%= office.title %></h2>
+	<img src="https://images.pexels.com/photos/1680140/pexels-photo-1680140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+	<figcaption>
+		<h3>
+			More Info
+		</h3>
+		<p><%= office.description %></p>
+    <p>price:<%= number_to_currency(office.price) %> </p>
+		<button>
+			<%= link_to "More info", office %>
+		</button>
     <% if office.user == current_user %>
         <%= link_to "delete", office_path(office), data: { turbo_method: :delete, turbo_confirm: "Are your sure?" }, class: "btn btn-warning justify-content-between wrn" %>
     <% end %>
-    </div>
-    <% end %>
-  </div>
-  </div>
+	</figcaption>
+</figure>
+<% end %>
+
+</div>
+</div>
 </div>

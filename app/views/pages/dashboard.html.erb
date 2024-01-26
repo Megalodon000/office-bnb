@@ -1,0 +1,23 @@
+<% if current_user %>
+<div class="container">
+  <% @bookings.each do |booking| %>
+  <div class="card my-3 border border-light shadow ">
+  <h3 class="card-header "><%= booking.office.title %></h3>
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.user.name %></h5>
+      <p class="card-text">booking from : <strong><%= booking.start_date %> </strong>to <strong><%= booking.end_date %></p></strong>
+      <p>pending :<%= booking.pending? %> </p>
+      <div class="bott">
+          <a href="#" class="btn btn-primary">Accept</a>
+          <a href="#" class="btn btn-danger">refuse</a>
+      </div>
+    </div>
+</div>
+<% end %>
+
+</div>
+<% else %>
+
+<h1> please login first </h1>
+
+<% end %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :new, :create, :destroy]
   resources :offices, only: [:index, :show, :new, :create, :destroy]
 
-
+  get "dashboard", to: "pages#dashboard"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
