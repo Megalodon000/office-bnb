@@ -1,0 +1,18 @@
+<%= page.product %>
+<%# BEGIN: Page Product %>
+<div class="product-page">
+    <h1>Pets Furniture</h1>
+    
+    <div class="carousel">
+        <%# Add your carousel code here %>
+        <%# BEGIN: Carousel Images %>
+        <%# Replace "image1.jpg", "image2.jpg", etc. with your actual image names %>
+        <% (1..5).each do |index| %>
+            <img src="<%= asset_path('pets_furniture/image' + index.to_s + '.jpg') %>" alt="Image <%= index %>">
+        <% end %>
+        <%# END: Carousel Images %>
+    </div>
+    
+    <%# Add the rest of your product page content here %>
+</div>
+<%# END: Page Product %>
