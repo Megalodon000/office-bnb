@@ -1,7 +1,6 @@
 <% if current_user %>
     <%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
 <% end %>
-
 <div class="container">
 <div class="row pb-3">
 <% @offices.each do |office| %>
