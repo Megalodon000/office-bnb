@@ -1,7 +1,13 @@
 <div class="container ">
-<% if current_user %>
-    <%= link_to "add office", new_office_path(@office), class:"btn btn-primary m-3" %>
-<% end %>
+<div class="d-flex justify-content-between align-items-center">
+    <% if current_user %>
+      <%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
+    <% end %>
+    <%= form_with(url: offices_path, method: :get, local: true, class: "d-flex") do |form| %>
+      <%= form.text_field :search, placeholder: "Search offices", class: "form-control" %>
+      <%= form.submit "Search", class: "btn btn-primary ml-2" %>
+    <% end %>
+  </div>
 
 <div id="cardsindex">
 <div class="cards">

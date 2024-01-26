@@ -1,7 +1,11 @@
 class OfficesController < ApplicationController
   def index
-    @offices = Office.all
-    @user = current_user
+    if params[:search]
+      @offices = Office.where('title LIKE ?', "%#{params[:search]}%")
+    else
+      @offices = Office.all
+      @user = current_user
+    end
 
   end
 
