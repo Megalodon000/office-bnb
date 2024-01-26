@@ -12,7 +12,9 @@
 	<figcaption>
   <div class></div>
 		<h3>
-			<%= office.user.name %>
+    <% if office.user.name? %>
+      <%= office.user.name %>
+    <% end %>
 		</h3>
 		<p><%= office.description %></p>
     <p>price:<%= number_to_currency(office.price) %> </p>
