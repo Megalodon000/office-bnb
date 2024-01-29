@@ -1,0 +1,1 @@
+Office.destroy_all

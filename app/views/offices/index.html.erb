@@ -1,36 +1,33 @@
 <div class="container ">
 <div class="d-flex justify-content-between align-items-center">
-    <% if current_user %>
-      <%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
-    <% end %>
-    <%= form_with(url: offices_path, method: :get, local: true, class: "d-flex") do |form| %>
-      <%= form.text_field :search, placeholder: "Search offices", class: "form-control" %>
-      <%= form.submit "Search", class: "btn btn-primary ml-2" %>
-    <% end %>
-  </div>
+	<% if current_user %>
+		<%= link_to "add office", new_office_path(@office), class:"btn btn-primary" %>
+	<% end %>
+	<%= form_with(url: offices_path, method: :get, local: true, class: "d-flex") do |form| %>
+	<%= form.text_field :search, placeholder: "Search offices", class: "form-control" %>
+	<%= form.submit "Search", class: "btn btn-primary ml-2" %>
+	<% end %>
+</div>
 
 <div id="cardsindex">
-<div class="cards">
-<% @offices.each do |office| %>
-<figure class=" card-category">
-	<h2 class="text-black"><%= office.title %></h2>
-	<%= cl_image_tag office.photo.key, height: 300, width: 400, crop: :fill %>
-	<figcaption>
-  <div class></div>
-		<h3>
-    <% if office.user.name? %>
-      <%= office.user.name %>
-    <% end %>
-		</h3>
-		<p><%= office.description %></p>
-    <p>price:<%= number_to_currency(office.price) %> </p>
-		<button>
-			<%= link_to "More info", office, class:"mb-2" %>
-		</button>
-
-	</figcaption>
-</figure>
-<% end %>
-
-</div>
+	<div class="cards">
+		<% @offices.each do |office| %>
+		<figure class=" card-category">
+			<h2 class="text-black"><%= office.title %></h2>
+			<%= cl_image_tag office.photo.key, height: 300, width: 400, crop: :fill %>
+			<figcaption>
+				<h3>
+			<% if office.user.name? %>
+			<%= office.user.name %>
+			<% end %>
+				</h3>
+				<p><%= office.description %></p>
+			<p>price:<%= number_to_currency(office.price) %> </p>
+				<button>
+					<%= link_to "More info", office, class:"mb-2" %>
+				</button>
+			</figcaption>
+		</figure>
+		<% end %>
+	</div>
 </div>
