@@ -13,7 +13,7 @@
 	<div class="cards">
 		<% @offices.each do |office| %>
 		<figure class=" card-category">
-			<h2 class="text-black"><%= office.title %></h2>
+			<h4 class="text-black"><%= office.title %></h4>
 			<%= cl_image_tag office.photo.key, height: 300, width: 400, crop: :fill %>
 			<figcaption>
 				<h3>
