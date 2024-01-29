@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :offices, only: [:index, :show, :new, :create, :destroy]
 
   get "dashboard", to: "pages#dashboard"
+  put "bookings/:id/accept", to: "bookings#accept", as: :accept_booking
+  put "bookings/:id/reject", to: "bookings#reject", as: :reject_booking
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
