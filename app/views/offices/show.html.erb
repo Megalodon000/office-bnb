@@ -16,7 +16,7 @@
     <% end %>
     </div>
     <div class="picker d-flex w-50">
-    <% if current_user %>
+    <% if @office.user != current_user %>
     <%= simple_form_for  @booking do |f| %>
       <div class="opening-date">
             <%= f.input :start_date,

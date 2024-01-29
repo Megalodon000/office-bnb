@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_office, only: %i[new]
-  before_action :set_booking, only: %i[destroy accept]
+  before_action :set_booking, only: %i[destroy accept reject]
 
   def new
     @bookings = Booking.new
@@ -11,11 +11,11 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path, notice: 'the booking was accepted'
   end
 
-  def rejected
+  def reject
     @booking.canceled!
     redirect_to dashboard_path, notice: 'the booking was declined'
   end
-  
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user

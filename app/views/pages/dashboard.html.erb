@@ -1,5 +1,6 @@
 <% if current_user %>
 <div class="container">
+<h1><%= current_user.name %> </h1>
   <% @bookings.each do |booking| %>
   <div class="card my-3 border border-light shadow ">
   <h3 class="card-header "><%= booking.office.title %></h3>
@@ -15,11 +16,13 @@
       <button class="btn btn-danger" > rejected </button>
         <% end %>
         </div>
-      <div class="buttns ">
-      <a href="#" class="btn btn-success">accept</a>
-      <a href="#" class="btn btn-danger">decline</a>
-      </div>
+        <% if booking.pending? && booking.office.user == current_user  %>
 
+      <div class="buttns ">
+      <%= link_to "accept", accept_booking_path(booking), data: { turbo_method: :put} , class:"btn btn-success" %>
+       <%= link_to "declined", reject_booking_path(booking), data: { turbo_method: :put},  class:"btn btn-danger" %>
+      </div>
+      <% end %>
     </div>
 </div>
 <% end %>
